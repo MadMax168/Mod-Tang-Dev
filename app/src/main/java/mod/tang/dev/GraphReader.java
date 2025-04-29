@@ -15,21 +15,18 @@ public class GraphReader {
 
     public static Object[] readJson(String jsonStr) {
         JSONObject obj = new JSONObject(jsonStr);
-        int n = obj.length() - 1; // ลบ "status" key ออกจากจำนวนโหนดทั้งหมด
+        int n = obj.length() - 1;
         int[][] matrix = initMatrix(n);
         int[] status = new int[n];
         
-        // ดึงค่า status จากส่วนที่อยู่ใน JSON
         JSONObject statusJson = obj.getJSONObject("status");
         
-        // ตรวจสอบค่าของ status ในแต่ละโหนด
         for (int i = 0; i < n; i++) {
-            status[i] = statusJson.getInt(String.valueOf(i));  // เก็บ status ของแต่ละ node
+            status[i] = statusJson.getInt(String.valueOf(i));
         }
     
-        // อ่านค่าขอบจาก JSON (เช่นเดิม)
         for (String key : obj.keySet()) {
-            if ("status".equals(key)) continue; // ข้ามส่วนของ status
+            if ("status".equals(key)) continue;
             int from = Integer.parseInt(key);
             JSONArray neighbors = obj.getJSONArray(key);
             
@@ -65,7 +62,6 @@ public class GraphReader {
                 Element nodeElement = (Element) nodeList.item(i);
                 int from = Integer.parseInt(nodeElement.getAttribute("id"));
 
-                // Set the status of the node
                 statuses[from] = Integer.parseInt(nodeElement.getAttribute("status"));
 
                 NodeList edges = nodeElement.getElementsByTagName("edge");

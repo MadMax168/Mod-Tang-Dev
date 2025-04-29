@@ -95,9 +95,9 @@ public class App {
         String resultXml = algo.dijkstra(matrixXml, 0, 7);
 
         System.out.println(resultJson);
-        PathChecker.checkPath(statusJson, resultJson);  // ตรวจสอบเส้นทาง JSON
+        PathChecker.checkPath(statusJson, resultJson);
         System.out.println(resultXml);
-        PathChecker.checkPath(statusXml, resultXml);  // ตรวจสอบเส้นทาง XML
+        PathChecker.checkPath(statusXml, resultXml);
     }
 
     private static void printMatrix(int[][] matrix) {
