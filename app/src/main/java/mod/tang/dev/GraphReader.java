@@ -82,6 +82,12 @@ public class GraphReader {
         }
     }
 
+    public int calDistance(){
+        
+
+        return 0;
+    }
+
     private static int[][] initMatrix(int n) {
         int[][] matrix = new int[n][n];
         for (int i = 0; i < n; i++) {

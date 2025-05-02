@@ -3,42 +3,42 @@ package mod.tang.dev;
 import java.util.*;
 
 public class PathChecker {
-    
+
     public static void checkPath(int[] status, String path) {
-        String cleanedPath = path.replace("Shortest Path:", "").replace("distance:", "").trim();
-        
-        String[] nodes = cleanedPath.split(" -> ");
+        String cleanPath = path.split("\\|")[0].trim();  // จะได้ "0 -> 9 -> 10"
+    
+        // แยกตาม " -> "
+        String[] nodes = cleanPath.split(" -> ");
         List<Integer> pathNodes = new ArrayList<>();
         
         for (String node : nodes) {
             try {
-                String cleanNode = node.replaceAll("[^0-9]", "").trim();
-                pathNodes.add(Integer.parseInt(cleanNode));
+                pathNodes.add(Integer.parseInt(node.trim()));
             } catch (NumberFormatException e) {
-                System.out.println("Error parsing node: " + node);
+                System.out.println("Invalid node: " + node);
             }
         }
-        
-        List<Integer> importantNodes = new ArrayList<>();
-        importantNodes.add(pathNodes.get(0));
+
+        List<Integer> markNodes = new ArrayList<>();
+        markNodes.add(pathNodes.get(0));
         
         for (int i = 0; i < pathNodes.size() - 1; i++) {
             int start = pathNodes.get(i);
             int end = pathNodes.get(i + 1);
 
             if (status[start] == 1 && status[end] == 1) {
-                importantNodes.add(end);
+                markNodes.add(end);
             }
         }
 
         StringBuilder newPath = new StringBuilder();
-        for (int i = 0; i < importantNodes.size(); i++) {
-            newPath.append(importantNodes.get(i));
-            if (i < importantNodes.size() - 1) {
+        for (int i = 0; i < markNodes.size(); i++) {
+            newPath.append(markNodes.get(i));
+            if (i < markNodes.size() - 1) {
                 newPath.append(" -> ");
             }
         }
-        
-        System.out.println("Shortest Path: " + newPath);
+
+        System.out.println("Shortest Path(Important-Node): " + newPath);
     }
 }

@@ -9,95 +9,274 @@ public class App {
 
         String json = """
         {
-            "0": [{"to": 1, "weight": 10}, {"to": 2, "weight": 15}],
-            "1": [{"to": 3, "weight": 10}],
-            "2": [{"to": 4, "weight": 7}],
-            "3": [{"to": 4, "weight": 3}],
-            "4": [{"to": 5, "weight": 2}],
-            "5": [{"to": 6, "weight": 5}],
-            "6": [{"to": 7, "weight": 4}],
-            "7": [{"to": 8, "weight": 8}],
-            "8": [{"to": 9, "weight": 6}],
-            "9": [{"to": 0, "weight": 9}],
+            "0": [{"to": 1, "weight": 4}, {"to": 2, "weight": 2}],
+            "1": [{"to": 0, "weight": 4}, {"to": 3, "weight": 5}, {"to": 4, "weight": 3}],
+            "2": [{"to": 0, "weight": 2}, {"to": 5, "weight": 6}],
+            "3": [{"to": 1, "weight": 5}, {"to": 4, "weight": 1}, {"to": 5, "weight": 2}],
+            "4": [{"to": 1, "weight": 3}, {"to": 3, "weight": 1}, {"to": 5, "weight": 4}],
+            "5": [{"to": 2, "weight": 6}, {"to": 3, "weight": 2}, {"to": 4, "weight": 4}],
+            "6": [{"to": 7, "weight": 2}, {"to": 8, "weight": 3}],
+            "7": [{"to": 6, "weight": 2}, {"to": 9, "weight": 1}],
+            "8": [{"to": 6, "weight": 3}, {"to": 9, "weight": 2}],
+            "9": [{"to": 7, "weight": 1}, {"to": 8, "weight": 2}],
+            "10": [{"to": 11, "weight": 3}, {"to": 12, "weight": 4}],
+            "11": [{"to": 10, "weight": 3}, {"to": 13, "weight": 5}],
+            "12": [{"to": 10, "weight": 4}, {"to": 14, "weight": 6}],
+            "13": [{"to": 11, "weight": 5}, {"to": 15, "weight": 7}],
+            "14": [{"to": 12, "weight": 6}, {"to": 16, "weight": 2}],
+            "15": [{"to": 13, "weight": 7}, {"to": 17, "weight": 3}],
+            "16": [{"to": 14, "weight": 2}, {"to": 18, "weight": 4}],
+            "17": [{"to": 15, "weight": 3}, {"to": 19, "weight": 1}],
+            "18": [{"to": 16, "weight": 4}, {"to": 20, "weight": 5}],
+            "19": [{"to": 17, "weight": 1}, {"to": 21, "weight": 2}],
+            "20": [{"to": 18, "weight": 5}, {"to": 22, "weight": 3}],
+            "21": [{"to": 19, "weight": 2}, {"to": 23, "weight": 4}],
+            "22": [{"to": 20, "weight": 3}, {"to": 24, "weight": 6}],
+            "23": [{"to": 21, "weight": 4}, {"to": 25, "weight": 5}],
+            "24": [{"to": 22, "weight": 6}, {"to": 26, "weight": 7}],
+            "25": [{"to": 23, "weight": 5}, {"to": 27, "weight": 3}],
+            "26": [{"to": 24, "weight": 7}, {"to": 28, "weight": 2}],
+            "27": [{"to": 25, "weight": 3}, {"to": 29, "weight": 4}],
+            "28": [{"to": 26, "weight": 2}, {"to": 30, "weight": 5}],
+            "29": [{"to": 27, "weight": 4}, {"to": 31, "weight": 6}],
+            "30": [{"to": 28, "weight": 5}, {"to": 32, "weight": 3}],
+            "31": [{"to": 29, "weight": 6}, {"to": 33, "weight": 2}],
+            "32": [{"to": 30, "weight": 3}, {"to": 34, "weight": 5}],
+            "33": [{"to": 31, "weight": 2}, {"to": 35, "weight": 4}],
+            "34": [{"to": 32, "weight": 5}, {"to": 36, "weight": 6}],
+            "35": [{"to": 33, "weight": 4}, {"to": 37, "weight": 7}],
+            "36": [{"to": 34, "weight": 6}, {"to": 38, "weight": 2}],
+            "37": [{"to": 35, "weight": 7}, {"to": 39, "weight": 3}],
+            "38": [{"to": 36, "weight": 2}],
+            "39": [{"to": 37, "weight": 3}],
+            "40": [{"to": 41, "weight": 4}, {"to": 42, "weight": 5}],
+            "41": [{"to": 40, "weight": 4}, {"to": 43, "weight": 6}],
+            "42": [{"to": 40, "weight": 5}, {"to": 44, "weight": 7}],
+            "43": [{"to": 41, "weight": 6}, {"to": 45, "weight": 8}],
+            "44": [{"to": 42, "weight": 7}, {"to": 46, "weight": 3}],
+            "45": [{"to": 43, "weight": 8}, {"to": 47, "weight": 4}],
+            "46": [{"to": 44, "weight": 3}, {"to": 48, "weight": 5}],
+            "47": [{"to": 45, "weight": 4}, {"to": 49, "weight": 2}],
+            "48": [{"to": 46, "weight": 5}, {"to": 50, "weight": 6}],
+            "49": [{"to": 47, "weight": 2}, {"to": 51, "weight": 7}],
+            "50": [{"to": 48, "weight": 6}, {"to": 52, "weight": 3}],
+            "51": [{"to": 49, "weight": 7}, {"to": 53, "weight": 4}],
+            "52": [{"to": 50, "weight": 3}, {"to": 54, "weight": 5}],
+            "53": [{"to": 51, "weight": 4}, {"to": 55, "weight": 6}],
+            "54": [{"to": 52, "weight": 5}, {"to": 56, "weight": 7}],
+            "55": [{"to": 53, "weight": 6}, {"to": 57, "weight": 3}],
+            "56": [{"to": 54, "weight": 7}, {"to": 58, "weight": 4}],
+            "57": [{"to": 55, "weight": 3}, {"to": 59, "weight": 5}],
+            "58": [{"to": 56, "weight": 4}, {"to": 60, "weight": 6}],
+            "59": [{"to": 57, "weight": 5}, {"to": 61, "weight": 2}],
+            "60": [{"to": 58, "weight": 6}, {"to": 62, "weight": 3}],
+            "61": [{"to": 59, "weight": 2}, {"to": 63, "weight": 4}],
+            "62": [{"to": 60, "weight": 3}, {"to": 64, "weight": 5}],
+            "63": [{"to": 61, "weight": 4}, {"to": 65, "weight": 6}],
+            "64": [{"to": 62, "weight": 5}, {"to": 66, "weight": 3}],
+            "65": [{"to": 63, "weight": 6}, {"to": 67, "weight": 2}],
+            "66": [{"to": 64, "weight": 3}, {"to": 68, "weight": 5}],
+            "67": [{"to": 65, "weight": 2}, {"to": 69, "weight": 4}],
+            "68": [{"to": 66, "weight": 5}],
+            "69": [{"to": 67, "weight": 4}],
+            "70": [{"to": 71, "weight": 3}, {"to": 72, "weight": 5}],
+            "71": [{"to": 70, "weight": 3}, {"to": 73, "weight": 6}],
+            "72": [{"to": 70, "weight": 5}, {"to": 74, "weight": 7}],
+            "73": [{"to": 71, "weight": 6}, {"to": 75, "weight": 8}],
+            "74": [{"to": 72, "weight": 7}, {"to": 76, "weight": 4}],
+            "75": [{"to": 73, "weight": 8}, {"to": 77, "weight": 3}],
+            "76": [{"to": 74, "weight": 4}, {"to": 78, "weight": 5}],
+            "77": [{"to": 75, "weight": 3}, {"to": 79, "weight": 6}],
+            "78": [{"to": 76, "weight": 5}, {"to": 80, "weight": 2}],
+            "79": [{"to": 77, "weight": 6}, {"to": 81, "weight": 7}],
+            "80": [{"to": 78, "weight": 2}, {"to": 82, "weight": 5}],
+            "81": [{"to": 79, "weight": 7}, {"to": 83, "weight": 4}],
+            "82": [{"to": 80, "weight": 5}, {"to": 84, "weight": 6}],
+            "83": [{"to": 81, "weight": 4}, {"to": 85, "weight": 3}],
+            "84": [{"to": 82, "weight": 6}, {"to": 86, "weight": 5}],
+            "85": [{"to": 83, "weight": 3}, {"to": 87, "weight": 7}],
+            "86": [{"to": 84, "weight": 5}, {"to": 88, "weight": 4}],
+            "87": [{"to": 85, "weight": 7}, {"to": 89, "weight": 6}],
+            "88": [{"to": 86, "weight": 4}, {"to": 90, "weight": 5}],
+            "89": [{"to": 87, "weight": 6}, {"to": 91, "weight": 3}],
+            "90": [{"to": 88, "weight": 5}, {"to": 92, "weight": 4}],
+            "91": [{"to": 89, "weight": 3}, {"to": 93, "weight": 6}],
+            "92": [{"to": 90, "weight": 4}, {"to": 94, "weight": 5}],
+            "93": [{"to": 91, "weight": 6}, {"to": 95, "weight": 2}],
+            "94": [{"to": 92, "weight": 5}, {"to": 96, "weight": 7}],
+            "95": [{"to": 93, "weight": 2}, {"to": 97, "weight": 5}],
+            "96": [{"to": 94, "weight": 7}, {"to": 98, "weight": 3}],
+            "97": [{"to": 95, "weight": 5}, {"to": 99, "weight": 4}],
+            "98": [{"to": 96, "weight": 3}],
+            "99": [{"to": 97, "weight": 4}],
             "status": {
-                "0": 1,
-                "1": 1,
-                "2": 0,
-                "3": 1,
-                "4": 0,
-                "5": 1,
-                "6": 1,
-                "7": 0,
-                "8": 0,
-                "9": 1
+            "0": 1,
+            "1": 1,
+            "2": 0,
+            "3": 1,
+            "4": 0,
+            "5": 1,
+            "6": 1,
+            "7": 0,
+            "8": 0,
+            "9": 1,
+            "10": 1,
+            "11": 1,
+            "12": 0,
+            "13": 1,
+            "14": 0,
+            "15": 1,
+            "16": 0,
+            "17": 1,
+            "18": 1,
+            "19": 0,
+            "20": 1,
+            "21": 0,
+            "22": 1,
+            "23": 1,
+            "24": 0,
+            "25": 1,
+            "26": 0,
+            "27": 1,
+            "28": 1,
+            "29": 0,
+            "30": 1,
+            "31": 0,
+            "32": 1,
+            "33": 1,
+            "34": 0,
+            "35": 0,
+            "36": 1,
+            "37": 1,
+            "38": 0,
+            "39": 1,
+            "40": 0,
+            "41": 1,
+            "42": 0,
+            "43": 1,
+            "44": 1,
+            "45": 0,
+            "46": 0,
+            "47": 1,
+            "48": 0,
+            "49": 1,
+            "50": 1,
+            "51": 0,
+            "52": 1,
+            "53": 0,
+            "54": 1,
+            "55": 1,
+            "56": 0,
+            "57": 1,
+            "58": 0,
+            "59": 1,
+            "60": 0,
+            "61": 1,
+            "62": 1,
+            "63": 0,
+            "64": 1,
+            "65": 0,
+            "66": 1,
+            "67": 1,
+            "68": 0,
+            "69": 1,
+            "70": 1,
+            "71": 0,
+            "72": 1,
+            "73": 0,
+            "74": 1,
+            "75": 0,
+            "76": 1,
+            "77": 1,
+            "78": 0,
+            "79": 1,
+            "80": 0,
+            "81": 1,
+            "82": 1,
+            "83": 0,
+            "84": 0,
+            "85": 1,
+            "86": 1,
+            "87": 0,
+            "88": 1,
+            "89": 0,
+            "90": 1,
+            "91": 0,
+            "92": 1,
+            "93": 0,
+            "94": 1,
+            "95": 1,
+            "96": 0,
+            "97": 1,
+            "98": 0,
+            "99": 1
             }
         }
         """; 
 
-        String xml = """
-        <graph>
-            <node id="0" status="1">
-                <edge to="1" weight="10"/>
-                <edge to="2" weight="15"/>
-            </node>
-            <node id="1" status="1">
-                <edge to="3" weight="10"/>
-            </node>
-            <node id="2" status="0">
-                <edge to="4" weight="7"/>
-            </node>
-            <node id="3" status="1">
-                <edge to="4" weight="3"/>
-            </node>
-            <node id="4" status="0">
-                <edge to="5" weight="2"/>
-            </node>
-            <node id="5" status="1">
-                <edge to="6" weight="5"/>
-            </node>
-            <node id="6" status="1">
-                <edge to="7" weight="4"/>
-            </node>
-            <node id="7" status="0">
-                <edge to="8" weight="8"/>
-            </node>
-            <node id="8" status="0">
-                <edge to="9" weight="6"/>
-            </node>
-            <node id="9" status="1">
-                <edge to="0" weight="9"/>
-            </node>
-        </graph>
-        """; 
+        // String xml = """
+        // <graph>
+        //     <node id="0" status="1">
+        //         <edge to="1" weight="10"/>
+        //         <edge to="2" weight="15"/>
+        //     </node>
+        //     <node id="1" status="1">
+        //         <edge to="3" weight="10"/>
+        //     </node>
+        //     <node id="2" status="0">
+        //         <edge to="4" weight="7"/>
+        //     </node>
+        //     <node id="3" status="1">
+        //         <edge to="4" weight="3"/>
+        //     </node>
+        //     <node id="4" status="0">
+        //         <edge to="5" weight="2"/>
+        //     </node>
+        //     <node id="5" status="1">
+        //         <edge to="6" weight="5"/>
+        //     </node>
+        //     <node id="6" status="1">
+        //         <edge to="7" weight="4"/>
+        //     </node>
+        //     <node id="7" status="0">
+        //         <edge to="8" weight="8"/>
+        //     </node>
+        //     <node id="8" status="0">
+        //         <edge to="9" weight="6"/>
+        //     </node>
+        //     <node id="9" status="1">
+        //         <edge to="0" weight="9"/>
+        //     </node>
+        // </graph>
+        // """; 
 
         Object[] graphDataJson = GraphReader.readJson(json);
         int[][] matrixJson = (int[][]) graphDataJson[0];
         int[] statusJson = (int[]) graphDataJson[1];
         
-        Object[] graphDataXml = GraphReader.readXml(xml);
-        int[][] matrixXml = (int[][]) graphDataXml[0];
-        int[] statusXml = (int[]) graphDataXml[1];
+        // Object[] graphDataXml = GraphReader.readXml(xml);
+        // int[][] matrixXml = (int[][]) graphDataXml[0];
+        // int[] statusXml = (int[]) graphDataXml[1];
         
-        System.out.println("JSON Graph:");
-        System.out.println("Adjacency Matrix:");
-        printMatrix(matrixJson);
-        System.out.println("Node Statuses:");
-        printStatuses(statusJson);
+        // System.out.println("JSON Graph:");
+        // System.out.println("Adjacency Matrix:");
+        // printMatrix(matrixJson);
+        // System.out.println("Node Statuses:");
+        // printStatuses(statusJson);
 
-        System.out.println("\nXML Graph:");
-        System.out.println("Adjacency Matrix:");
-        printMatrix(matrixXml);
-        System.out.println("Node Statuses:");
-        printStatuses(statusXml);
+        // System.out.println("\nXML Graph:");
+        // System.out.println("Adjacency Matrix:");
+        // printMatrix(matrixXml);
+        // System.out.println("Node Statuses:");
+        // printStatuses(statusXml);
 
-        // Run Dijkstra
-        String resultJson = algo.dijkstra(matrixJson, 0, 7);
-        String resultXml = algo.dijkstra(matrixXml, 0, 7);
+        String resultJson = algo.dijkstra(matrixJson, 50, 69);
+        // String resultXml = algo.dijkstra(matrixXml, 0, 7);
 
         System.out.println(resultJson);
         PathChecker.checkPath(statusJson, resultJson);
-        System.out.println(resultXml);
-        PathChecker.checkPath(statusXml, resultXml);
+        // System.out.println(resultXml);
+        // PathChecker.checkPath(statusXml, resultXml);
     }
 
     private static void printMatrix(int[][] matrix) {
