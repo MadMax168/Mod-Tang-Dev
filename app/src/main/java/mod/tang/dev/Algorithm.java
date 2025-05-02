@@ -49,6 +49,8 @@ public class Algorithm {
     public String path(int[] prev, int start, int dest, int dist) {
         if (dist == Integer.MAX_VALUE) return "No Path";
 
+        int time = (int) (dist / 1.4);
+
         List<Integer> path = new ArrayList<>();
         for (int at = dest; at != -1; at = prev[at]) path.add(at);
         Collections.reverse(path);
@@ -56,6 +58,6 @@ public class Algorithm {
         StringJoiner to = new StringJoiner(" -> ");
         for (int node : path) to.add(String.valueOf(node));
 
-        return to.toString() + " | distance = " + dist;
+        return to.toString() + " | distance = " + dist + " | time = " + time + "m/s";
     }
 }
